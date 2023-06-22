@@ -1,7 +1,7 @@
 const searchService = require('../services/searchService');
 const { catchAsync } = require('../utils/error');
 
-const search = async (req, res) => {
+const search = catchAsync(async (req, res) => {
   const { limit = 10, offset = 0, keyword } = req.query;
 
   if (!keyword) {
@@ -15,7 +15,7 @@ const search = async (req, res) => {
   );
 
   return res.status(200).json(searchData);
-};
+});
 
 const getHotTopics = catchAsync(async (req, res) => {
   const hotTopics = await searchService.getHotTopics();

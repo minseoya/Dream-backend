@@ -1,7 +1,7 @@
 const appDataSource = require('./appDataSource');
 const { DatabaseError } = require('../utils/error');
 
-const search = async (limit, offset, keyword) => {
+const search = async ({ limit, offset, keyword }) => {
   try {
     return await appDataSource.query(
       `SELECT
