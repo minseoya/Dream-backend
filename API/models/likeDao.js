@@ -1,7 +1,7 @@
 const appDataSource = require('./appDataSource');
 const { DatabaseError } = require('../utils/error');
 
-const isLike = async (proudctId, userId) => {
+const isLike = async ({ proudctId, userId }) => {
   try {
     const [isLike] = await appDataSource.query(
       `SELECT
@@ -20,9 +20,9 @@ const isLike = async (proudctId, userId) => {
   }
 };
 
-const createLike = async (proudctId, userId) => {
+const createLike = async ({ proudctId, userId }) => {
   try {
-    const createLike = await appDataSource.query(
+    return await appDataSource.query(
       `INSERT INTO likes(
           product_id,
           user_id
@@ -30,24 +30,20 @@ const createLike = async (proudctId, userId) => {
       `,
       [proudctId, userId]
     );
-
-    return createLike;
   } catch (err) {
     throw new DatabaseError('DATABASE_ERROR');
   }
 };
 
-const deleteLike = async (proudctId, userId) => {
+const deleteLike = async ({ proudctId, userId }) => {
   try {
-    const deleteLike = await appDataSource.query(
+    return await appDataSource.query(
       `DELETE FROM likes
         WHERE product_id =?
         AND user_id =?
         `,
       [proudctId, userId]
     );
-
-    return deleteLike;
   } catch (err) {
     throw new DatabaseError('DATABASE_ERROR');
   }
