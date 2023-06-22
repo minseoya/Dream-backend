@@ -6,7 +6,7 @@ const isLike = catchAsync(async (req, res) => {
 
   const { proudctId } = req.params;
 
-  const like = await likeService.isLike(proudctId, userId);
+  const like = await likeService.isLike({ proudctId, userId });
 
   if (like) return res.status(201).json({ message: 'CREATE_LIKE' });
 

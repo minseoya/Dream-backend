@@ -27,9 +27,7 @@ const getProductDetail = async (productId) => {
 };
 
 const getProductByLike = async (userId) => {
-  const productList = await productDao.getProductByLike(userId);
-
-  return productList;
+  return await productDao.getProductByLike(userId);
 };
 
 const getProductList = async ({
