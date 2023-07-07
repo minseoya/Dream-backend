@@ -127,7 +127,7 @@ const verificationReviewId = async (reviewId) => {
       [reviewId]
     );
     return !!parseInt(result.existing);
-  } catch {
+  } catch (err) {
     throw new DatabaseError('DATABASE_ERROR');
   }
 };

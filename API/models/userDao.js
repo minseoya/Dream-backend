@@ -35,7 +35,7 @@ const getUserById = async (userId) => {
       [userId]
     );
     return user;
-  } catch (error) {
+  } catch (err) {
     throw new DatabaseError('DataSource_Error');
   }
 };
@@ -68,21 +68,26 @@ const createUser = async (kakaoId, nickname, email) => {
   }
 };
 const inputAddress = async (userId, address, detailAddress, receiver) => {
-  const inputAddress = await appDataSource.query(
-    `
+  try {
+    const inputAddress = await appDataSource.query(
+      `
   INSERT INTO addressses
    (user_id,address,detail_address,receiver)
    VALUES(?,?,?,?)
   `,
-    [userId, address, detailAddress, receiver]
-  );
+      [userId, address, detailAddress, receiver]
+    );
 
-  return inputAddress.insertId;
+    return inputAddress.insertId;
+  } catch (err) {
+    throw new DatabaseError('DataSource_Error', 400);
+  }
 };
 
 const getAddressByUserId = async (userId) => {
-  return await appDataSource.query(
-    `
+  try {
+    return await appDataSource.query(
+      `
   SELECT
   address,
   detail_address,
@@ -91,8 +96,11 @@ const getAddressByUserId = async (userId) => {
   FROM addressses
   WHERE user_id =?
   `,
-    [userId]
-  );
+      [userId]
+    );
+  } catch (err) {
+    throw new DatabaseError('DataSource_Error', 400);
+  }
 };
 
 const inputNewAccount = async (accountNumber, userId) => {
@@ -108,7 +116,7 @@ const inputNewAccount = async (accountNumber, userId) => {
       [userId, accountNumber]
     );
     return insertInfo.insertId;
-  } catch {
+  } catch (err) {
     throw new DatabaseError('DataSource_Error', 400);
   }
 };
@@ -126,7 +134,7 @@ const inputNewCard = async (cardNumber, userId) => {
       [userId, cardNumber]
     );
     return insertInfo.insertId;
-  } catch {
+  } catch (err) {
     throw new DatabaseError('DataSource_Error', 400);
   }
 };
@@ -146,7 +154,7 @@ const getAccountListByUser = async (userId) => {
     );
 
     return accountList;
-  } catch {
+  } catch (err) {
     throw new DatabaseError('DataSource_Error', 400);
   }
 };
@@ -166,7 +174,7 @@ const getCardListByUser = async (userId) => {
     );
 
     return cardList;
-  } catch {
+  } catch (err) {
     throw new DatabaseError('DataSource_Error', 400);
   }
 };
