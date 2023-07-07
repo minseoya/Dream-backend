@@ -17,7 +17,11 @@ const getReviewByProductId = async (productId) => {
   return await reviewDao.getReviewByProductId(productId);
 };
 
-const deleteReview = async (reviewId) => {
+const deleteReview = async (reviewId, userId) => {
+  const userReview = await reviewDao.checkUserReview(reviewId);
+  if (userReview[0].userId != userId) {
+    throw new BaseError(401, 'Unauthorized');
+  }
   return await reviewDao.deleteReview(reviewId);
 };
 

@@ -35,10 +35,11 @@ const updateReview = catchAsync(async (req, res) => {
 
 const deleteReview = catchAsync(async (req, res) => {
   const { reviewId } = req.params;
+  const userId = req.user.id;
 
   if (!reviewId) throw new BaseError('KEY_ERROR', 400);
 
-  await reviewService.deleteReview(reviewId);
+  await reviewService.deleteReview(reviewId, userId);
 
   return res.status(200).json({ message: 'SUCCESS_DELETE' });
 });
