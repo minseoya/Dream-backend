@@ -1,6 +1,5 @@
 const appDataSource = require('./appDataSource');
 const { DatabaseError } = require('../utils/error');
-const { bidStatusEnum } = require('./enum');
 
 const getReviewByProductId = async (productId) => {
   try {
@@ -132,10 +131,29 @@ const verificationReviewId = async (reviewId) => {
   }
 };
 
+const checkUserReview = async (reviewId) => {
+  try {
+    const userReview = await appDataSource.query(
+      `
+          SELECT
+            user_id AS userId
+          FROM reviews
+          WHERE id = ?
+      `,
+      [reviewId]
+    );
+    const userReviewArr = Array.isArray(userReview) ? userReview : [userReview];
+    return userReviewArr;
+  } catch (err) {
+    throw new DatabaseError('DATABASE_ERROR');
+  }
+};
+
 module.exports = {
   createReview,
   getReviewByProductId,
   deleteReview,
   updateReview,
   verificationReviewId,
+  checkUserReview,
 };
