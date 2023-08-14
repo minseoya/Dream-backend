@@ -49,7 +49,7 @@ p2p 명품 경매 거래 플랫폼 KREAM을 모델링하여 레고 상품 p2p �
 
  ## 📍[Postman](https://documenter.getpostman.com/view/26858291/2s93eWzskR)
 > Postman의 Documentation을 프로젝트 진행 시 프론트엔드와의 소통 및 협업 도구로 활용 <br><br>
-<img width="1512" alt="스크린샷 2023-05-18 23 35 50" src="https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/3bff3e11-24d2-495c-81e4-f815da108948"><br>
+<img width="1000" alt="스크린샷 2023-05-18 23 35 50" src="https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/3bff3e11-24d2-495c-81e4-f815da108948"><br>
 
  <br>
  
@@ -71,7 +71,7 @@ https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/119482288/a
 - 상품 카테고리, 사용 연령, 난이도로 필터 가능합니다.
 <br>
 
- ![image](https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/f3ea9ebf-8142-414a-9436-07e7f7494f08)
+ 
  <br>
  
   ***
@@ -83,7 +83,7 @@ https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/119482288/a
 프리미엄 퍼센트는 상품 발매가와 최근 거래가의 비율로 계산됩니다.
 <br>
 
-![image](https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/f3ea9ebf-8142-414a-9436-07e7f7494f08)
+
 
  <br>
  
@@ -155,9 +155,6 @@ https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/119482288/e
 - 즉시 구매 후 client가 결제 완료 요청을 보내면, 거래 상태를 결제 완료로 업데이트합니다.
 - 즉시 판매가 체결되면 구매자의 결제 대기로 상태를 업데이트 합니다.
 
- ![image](https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/29151875-568c-4c0c-b3f2-e4600cfbc1e3)
-
-![image](https://github.com/wecode-bootcamp-korea/44-2nd-Dream-backend/assets/120387100/5e3806a3-0a6b-4d89-b17a-339938c1ac92)
 
 
 
