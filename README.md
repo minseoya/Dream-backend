@@ -1,4 +1,4 @@
-<img width="626" alt="image" src="https://github.com/minseoya/Dream-backend/assets/119482288/86136ae9-01df-4648-ac3f-335fd9cc0549"># 44-2nd-Dream-backend 경매 플랫폼 제작 프로젝트
+# 44-2nd-Dream-backend 경매 플랫폼 제작 프로젝트
 
 
 김민서([**Github**](https://github.com/), [회고록](https://just-process.tistory.com/45/))<br>
