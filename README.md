@@ -1,4 +1,4 @@
-# 44-2nd-Dream-backend 경매 플랫폼 제작 프로젝트
+<img width="626" alt="image" src="https://github.com/minseoya/Dream-backend/assets/119482288/86136ae9-01df-4648-ac3f-335fd9cc0549"># 44-2nd-Dream-backend 경매 플랫폼 제작 프로젝트
 
 
 김민서([**Github**](https://github.com/), [회고록](https://just-process.tistory.com/45/))<br>
@@ -21,7 +21,32 @@ p2p 명품 경매 거래 플랫폼 KREAM을 모델링하여 레고 상품 p2p �
 * 모델링한 사이트: [KREAM](https://kream.co.kr/)
 
 <br>
+## 📍디렉토리 구조
 
+  ```bash
+├── API
+│   ├── routes
+│   ├── controllers
+│   ├── services
+│   ├── utils
+│   └── models   
+│                 
+│                 
+├── tests
+├── db
+├── app.js
+├── server.js
+├── settings.json
+├── .env
+├── .env.test
+├── .eslintrc
+├── .prettierrc
+├── README.md
+├── package-lock.json
+└── package.json
+  ```
+
+<br>
 
 ## 📍사용 기술
 
