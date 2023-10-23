@@ -2,6 +2,11 @@ const paymentService = require('../services/paymentService');
 const { catchAsync, BaseError } = require('../utils/error');
 
 const createBuyPayment = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const userId = req.user.id;
   const { addressId, dealNumber, biddingId } = req.body;
 
@@ -20,6 +25,11 @@ const createBuyPayment = catchAsync(async (req, res) => {
 });
 
 const buyBidding = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const userId = req.user.id;
   const { addressId, biddingId } = req.body;
 
@@ -37,6 +47,11 @@ const buyBidding = catchAsync(async (req, res) => {
 });
 
 const createSellPayment = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const userId = req.user.id;
   const { dealNumber, cardNumberId, accountNumberId, biddingId } = req.body;
 
@@ -56,6 +71,11 @@ const createSellPayment = catchAsync(async (req, res) => {
 });
 
 const createSellBidding = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const userId = req.user.id;
   const { cardNumberId, accountNumberId, biddingId } = req.body;
 

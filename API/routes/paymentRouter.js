@@ -4,14 +4,14 @@ const paymentController = require('../controllers/paymentController');
 
 const router = express.Router();
 
-router.post('/bidding/buying', checkLogInToken, paymentController.buyBidding);
+router.post('/bidding/buying', paymentController.buyBidding);
 router.post(
   '/bidding/selling',
-  checkLogInToken,
+
   paymentController.createSellBidding
 );
-router.post('/buying', checkLogInToken, paymentController.createBuyPayment);
-router.post('/selling', checkLogInToken, paymentController.createSellPayment);
+router.post('/buying', paymentController.createBuyPayment);
+router.post('/selling', paymentController.createSellPayment);
 
 module.exports = {
   router,

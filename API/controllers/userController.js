@@ -12,6 +12,12 @@ const signInKakao = catchAsync(async (req, res) => {
 });
 
 const getUserById = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
   const userInfo = await userService.getUserById(userId);
 
@@ -19,6 +25,12 @@ const getUserById = catchAsync(async (req, res) => {
 });
 
 const inputAddress = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
   const { address, detailAddress, receiver } = req.body;
 
@@ -37,6 +49,12 @@ const inputAddress = catchAsync(async (req, res) => {
 });
 
 const getAddressByUserId = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
 
   const addresses = await userService.getAddressByUserId(userId);
@@ -45,6 +63,12 @@ const getAddressByUserId = catchAsync(async (req, res) => {
 });
 
 const inputNewAccount = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const { accountNumber } = req.body;
 
   if (!accountNumber) throw new BaseError('KEY_ERROR', 400);
@@ -59,6 +83,12 @@ const inputNewAccount = catchAsync(async (req, res) => {
 });
 
 const inputNewCard = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const { cardNumber } = req.body;
 
   if (!cardNumber) throw new BaseError('KEY_ERROR', 400);
@@ -70,6 +100,12 @@ const inputNewCard = catchAsync(async (req, res) => {
 });
 
 const getAccountListByUser = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
   const accountList = await userService.getAccountListByUser(userId);
 
@@ -77,6 +113,12 @@ const getAccountListByUser = catchAsync(async (req, res) => {
 });
 
 const getCardListByUser = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
   const cardList = await userService.getCardListByUser(userId);
 
