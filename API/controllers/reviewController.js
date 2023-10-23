@@ -2,6 +2,12 @@ const reviewService = require('../services/reviewService');
 const { catchAsync, BaseError } = require('../utils/error');
 
 const createReview = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
 
   const { content, title, productId } = req.body;
@@ -24,6 +30,11 @@ const getReviewByProductId = catchAsync(async (req, res) => {
 });
 
 const updateReview = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const { reviewId, title, content } = req.body;
   const url = req.file ? req.file.location : '';
   const userId = req.user.id;
@@ -34,6 +45,11 @@ const updateReview = catchAsync(async (req, res) => {
 });
 
 const deleteReview = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
   const { reviewId } = req.params;
   const userId = req.user.id;
 

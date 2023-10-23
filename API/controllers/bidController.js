@@ -19,6 +19,12 @@ const infoByproductId = catchAsync(async (req, res) => {
 });
 
 const inputBidPrice = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const { productId, bidType, bidPrice, dueDate } = req.body;
 
   if (
@@ -45,6 +51,12 @@ const inputBidPrice = catchAsync(async (req, res) => {
 });
 
 const getBiddingInfo = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const { productId } = req.params;
   const { bidtype: bidType } = req.query;
 

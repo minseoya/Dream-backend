@@ -2,6 +2,12 @@ const likeService = require('../services/likeService');
 const { catchAsync } = require('../utils/error');
 
 const isLike = catchAsync(async (req, res) => {
+  if (!req.isAuth) {
+    const error = new Error('Not authenticated!');
+    error.code = 401;
+    throw error;
+  }
+
   const userId = req.user.id;
 
   const { proudctId } = req.params;

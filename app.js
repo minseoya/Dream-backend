@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const router = require('./API/routes');
 
 const { globalErrorHandler } = require('./API/utils/error');
+const checkLogInToken = require('./API/utils/auth');
 
 const createApp = () => {
   const app = express();
@@ -15,6 +16,7 @@ const createApp = () => {
   app.use(morgan('tiny'));
   app.use(express.json());
 
+  app.use(checkLogInToken);
   app.use(router);
 
   app.get('/ping', (req, res) => {
